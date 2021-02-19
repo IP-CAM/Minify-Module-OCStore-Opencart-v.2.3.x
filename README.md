@@ -1,38 +1,39 @@
-# Minify для ocStore 2.3
+# Minify for ocStore 2.3
 
-Объединение, сжатие css, js файлов и форматирование html в одну строку.
+Combine, compress css, js files and html formatting into one line.
 
-## Описание
+## Description
 
-Собирает все css и js файлы, объединяет их в один и удаляет лишние пробелы, переносы  без ломания кода, а так же может сжать их gzip. 
-Умеет форматировать html удаляя лишние пробелы, переносы, попутно сжимая js и css без ломания кода.
+Collects all css and js files, combines them into one and removes extra spaces, hyphens without breaking the code, and can also compress them with gzip.
+He knows how to format html by removing extra spaces, hyphenation, simultaneously compressing js and css without breaking the code.
 
-## Настройка
+## Setting
 
-Залить содержимое папки upload в корень сайта и установить модуль в админке. Если модуль не появился в списке, то нужно дать права для просмотра, редактирования и проверить не отмечен ли он в списке на скрытие. В настройках модуля выбрать нужные параметры и сохранить.
+Upload the contents of the upload folder to the root of the site and install the module in the admin panel. If the module does not appear in the list, then you need to give permission to view, edit and check if it is not marked for hiding in the list. Select the required parameters in the module settings and save.
 
 ### Gzip
 
-Для работы gzip сжатия нужно прописать в .htaccess следующий код
+For gzip compression to work, you need to write the following code in .htaccess
 
-```
+``
 AddEncoding gzip .jgz
 #add support gzip JavaScript
-RewriteCond %{HTTP_USER_AGENT} ".*Safari.*" [OR]
-RewriteCond %{HTTP:Accept-Encoding} gzip
-RewriteCond %{REQUEST_FILENAME}.jgz -f
-RewriteRule (.*)\.js$ $1\.js.jgz [L]
-AddType "text/javascript" .js.jgz
+RewriteCond% {HTTP_USER_AGENT} ". * Safari. *" [OR]
+RewriteCond% {HTTP: Accept-Encoding} gzip
+RewriteCond% {REQUEST_FILENAME} .jgz -f
+RewriteRule (. *) \. Js $ $ 1 \ .js.jgz [L]
+AddType "text / javascript" .js.jgz
 #add support gzip CSS
-RewriteCond %{HTTP_USER_AGENT} ".*Safari.*" [OR]
-RewriteCond %{HTTP:Accept-Encoding} gzip
-RewriteCond %{REQUEST_FILENAME}.jgz -f
-RewriteRule (.*)\.js$ $1\.css.jgz [L]
-AddType "text/css" .css.jgz
+RewriteCond% {HTTP_USER_AGENT} ". * Safari. *" [OR]
+RewriteCond% {HTTP: Accept-Encoding} gzip
+RewriteCond% {REQUEST_FILENAME} .jgz -f
+RewriteRule (. *) \. Js $ $ 1 \ .css.jgz [L]
+AddType "text / css" .css.jgz
 AddEncoding gzip .jgz
-```
+``
 
-## Внимание!!!
+## Attention!!!
 
-* Модуль перезаписывает файл `system/framework.php` и он должен быть доступен для редактирования!
-* При изменении CSS и JS необходимо очистить кеш в настройках модуля, чтобы модуль заново сгенерировал файлы!
+* The module overwrites the `system / framework.php` file and it should be editable!
+* When changing CSS and JS, you must clear the cache in the module settings for the module to regenerate the files! 
+
