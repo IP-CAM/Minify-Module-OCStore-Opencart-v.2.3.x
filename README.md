@@ -1,4 +1,4 @@
-# Minify for ocStore 2.3
+# Minify for ocStore and Opencart v.2.3.x Versions
 
 Combine, compress css, js files and html formatting into one line.
 
